@@ -36,6 +36,7 @@ and this project adheres to
 - 🐛(makefile) fix args in make test
 - 🩹(backend) fix case-insensitive email deduplication in merge command
 - 🐛(summary) support media files with bad streams #1478
+- ♿️(frontend) focus side panel container on open #1452
 
 ## [1.22.0] - 2026-07-03
 
