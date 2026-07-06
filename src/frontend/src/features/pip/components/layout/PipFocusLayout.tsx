@@ -26,6 +26,7 @@ export const PipFocusLayout = memo(
             <ParticipantTile
               key={getTrackKey(mainTrack)}
               trackRef={mainTrack}
+              disableTileControls
             />
           </MainSlot>
         )}
@@ -34,6 +35,7 @@ export const PipFocusLayout = memo(
             <ParticipantTile
               key={getTrackKey(thumbnailTrack)}
               trackRef={thumbnailTrack}
+              disableTileControls
             />
           </Thumbnail>
         )}

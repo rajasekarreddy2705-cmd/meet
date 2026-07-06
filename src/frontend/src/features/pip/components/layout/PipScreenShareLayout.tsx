@@ -22,13 +22,13 @@ export const PipScreenShareLayout = memo(
           <CameraTilesRow>
             {cameraTracks.map((track) => (
               <CameraTile key={getTrackKey(track)}>
-                <ParticipantTile trackRef={track} />
+                <ParticipantTile trackRef={track} disableTileControls />
               </CameraTile>
             ))}
           </CameraTilesRow>
         )}
         <ScreenShareSlot>
-          <ParticipantTile trackRef={screenShareTrack} />
+          <ParticipantTile trackRef={screenShareTrack} disableTileControls />
         </ScreenShareSlot>
       </LayoutContainer>
     )
