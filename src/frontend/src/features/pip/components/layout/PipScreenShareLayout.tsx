@@ -52,6 +52,7 @@ const CameraTilesRow = styled('div', {
   base: {
     display: 'flex',
     flexDirection: 'row',
+    justifyContent: 'center',
     gap: '0.5rem',
     flexShrink: 0,
     height: '22%',
@@ -63,7 +64,9 @@ const CameraTilesRow = styled('div', {
 const CameraTile = styled('div', {
   base: {
     position: 'relative',
-    flex: '1 1 0',
+    flex: '0 1 auto',
+    height: '100%',
+    aspectRatio: '16 / 9',
     minWidth: 0,
     borderRadius: '8px',
     overflow: 'hidden',
