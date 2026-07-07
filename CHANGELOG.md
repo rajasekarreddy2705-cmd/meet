@@ -60,6 +60,10 @@ and this project adheres to
 - 🛂(backend) reject user access tokens on the API
 - 🩹(helm) fix Helm ingress rendering when passing multiple hosts
 
+### Fixed
+
+- 🐛(frontend) prefill prejoin name from the user profile #1435
+
 ## [1.21.0] - 2026-06-15
 
 ### Added
