@@ -6,10 +6,7 @@ export type RestoreFocusOptions = {
   onClosed?: () => void
   restoreFocusRaf?: boolean
   preventScroll?: boolean
-/**
- * When the panel stays open but its content changes (e.g. switching from Admin to Participants),
- * update which trigger button should receive focus on close.
- */
+  /** When the panel stays open but its content changes, update the restore target. */
   activeKey?: string | null
 }
 
