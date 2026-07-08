@@ -6,6 +6,8 @@ export type RestoreFocusOptions = {
   onClosed?: () => void
   restoreFocusRaf?: boolean
   preventScroll?: boolean
+  /** When the panel stays open but its content changes, update the restore target. */
+  activeKey?: string | null
 }
 
 /**
@@ -22,9 +24,11 @@ export function useRestoreFocus(
     onClosed,
     restoreFocusRaf = false,
     preventScroll = true,
+    activeKey,
   } = options
 
   const prevIsOpenRef = useRef(false)
+  const prevActiveKeyRef = useRef(activeKey)
   const triggerRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
@@ -32,6 +36,13 @@ export function useRestoreFocus(
 
     // Just opened
     if (!wasOpen && isOpen) {
+      const activeEl = document.activeElement as HTMLElement | null
+      triggerRef.current = resolveTrigger ? resolveTrigger(activeEl) : activeEl
+      onOpened?.()
+    }
+
+    // Panel switched while staying open
+    if (wasOpen && isOpen && activeKey !== prevActiveKeyRef.current) {
       const activeEl = document.activeElement as HTMLElement | null
       triggerRef.current = resolveTrigger ? resolveTrigger(activeEl) : activeEl
       onOpened?.()
@@ -50,8 +61,10 @@ export function useRestoreFocus(
     }
 
     prevIsOpenRef.current = isOpen
+    prevActiveKeyRef.current = activeKey
   }, [
     isOpen,
+    activeKey,
     onClosed,
     onOpened,
     preventScroll,
